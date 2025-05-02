@@ -9,5 +9,4 @@ public class FuriaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FuriaApplication.class, args);
 	}
-
 }
