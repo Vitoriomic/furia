@@ -31,7 +31,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll()
-                        .requestMatchers("/auth/login", "/jogos", "/usuarios").permitAll()
+                        .requestMatchers("/auth/login", "/jogos", "/usuarios", "/votos/*/resultado").permitAll()
                         .requestMatchers("/usuarios/me", "/votos/**").authenticated()
                         .anyRequest().permitAll()
                 )
