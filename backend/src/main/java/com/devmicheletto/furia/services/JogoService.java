@@ -1,5 +1,5 @@
 package com.devmicheletto.furia.services;
-
+import com.devmicheletto.furia.entities.TimeFuria;
 import com.devmicheletto.furia.dto.JogoDTO;
 import com.devmicheletto.furia.repositories.JogoRepository;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,14 @@ public class JogoService {
     public JogoService(JogoRepository jogoRepository) {
         this.jogoRepository = jogoRepository;
     }
+
+    public List<JogoDTO> listarPorTime(Long timeFuriaId) {
+        return jogoRepository.findByTimeFuriaId(timeFuriaId)
+                .stream()
+                .map(JogoDTO::new)
+                .collect(Collectors.toList());
+    }
+
 
     public List<JogoDTO> listarTodos() {
         return jogoRepository.findAll()

@@ -1,11 +1,14 @@
 package com.devmicheletto.furia.entities;
 
 import jakarta.persistence.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +22,11 @@ public class Usuario {
 
     private String redeSocial;
 
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    private String senha;
+
     @ManyToMany
     @JoinTable(
             name = "usuario_times_favoritos",
@@ -30,11 +38,14 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nome, LocalDate dataNascimento, String regiao, String redeSocial, List<TimeFuria> timesFavoritos) {
+    public Usuario(String nome, LocalDate dataNascimento, String regiao, String redeSocial,
+                   String email, String senha, List<TimeFuria> timesFavoritos) {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.regiao = regiao;
         this.redeSocial = redeSocial;
+        this.email = email;
+        this.senha = senha;
         this.timesFavoritos = timesFavoritos;
     }
 
@@ -85,5 +96,56 @@ public class Usuario {
 
     public void setTimesFavoritos(List<TimeFuria> timesFavoritos) {
         this.timesFavoritos = timesFavoritos;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public String getPassword() {
+        return senha;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

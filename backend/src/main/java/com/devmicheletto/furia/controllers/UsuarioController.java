@@ -1,8 +1,10 @@
 package com.devmicheletto.furia.controllers;
 
 import com.devmicheletto.furia.dto.UsuarioDTO;
+import com.devmicheletto.furia.dto.UsuarioPublicoDTO;
 import com.devmicheletto.furia.services.UsuarioService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,20 +24,21 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioService.criarUsuario(dto));
     }
 
-    @GetMapping
-    public ResponseEntity<List<UsuarioDTO>> listarTodos() {
-        return ResponseEntity.ok(usuarioService.listarTodos());
+    @GetMapping("/publico")
+    public ResponseEntity<List<UsuarioPublicoDTO>> listarPublico() {
+        return ResponseEntity.ok(usuarioService.listarPublicamente());
     }
 
-
-    @GetMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> buscarPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(usuarioService.buscarPorId(id));
+    @GetMapping("/me")
+    public ResponseEntity<UsuarioDTO> buscarProprioUsuario(Authentication authentication) {
+        String email = authentication.getName(); // email vem do principal do token
+        return ResponseEntity.ok(usuarioService.buscarPorEmail(email));
     }
 
-
-    @PutMapping("/{id}")
-    public ResponseEntity<UsuarioDTO> atualizar(@PathVariable Long id, @RequestBody UsuarioDTO dto) {
-        return ResponseEntity.ok(usuarioService.atualizarUsuario(id, dto));
+    @PutMapping("/me")
+    public ResponseEntity<UsuarioDTO> atualizarProprioUsuario(Authentication authentication,
+                                                              @RequestBody UsuarioDTO dto) {
+        String email = authentication.getName();
+        return ResponseEntity.ok(usuarioService.atualizarPorEmail(email, dto));
     }
 }

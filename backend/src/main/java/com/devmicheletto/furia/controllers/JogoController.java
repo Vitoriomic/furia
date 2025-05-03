@@ -17,7 +17,12 @@ public class JogoController {
     }
 
     @GetMapping
-    public List<JogoDTO> listarJogos() {
-        return jogoService.listarTodos();
+    public List<JogoDTO> listar(@RequestParam(required = false) Long furiaId) {
+        if (furiaId != null) {
+            return jogoService.listarPorTime(furiaId);
+        } else {
+            return jogoService.listarTodos();
+        }
     }
 }
+
