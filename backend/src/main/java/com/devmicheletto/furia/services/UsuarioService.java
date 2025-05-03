@@ -40,11 +40,38 @@ public class UsuarioService {
     }
 
     // Retorna todos os usuários cadastrados
-    public List<UsuarioDTO> listarUsuarios() {
+    public List<UsuarioDTO> listarTodos() {
         return usuarioRepository.findAll()
                 .stream()
                 .map(UsuarioDTO::new)
                 .collect(Collectors.toList());
     }
-}
 
+    // Busca usuário por ID
+    public UsuarioDTO buscarPorId(Long id) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário com ID " + id + " não encontrado."));
+        return new UsuarioDTO(usuario);
+    }
+
+    // Atualiza os dados do usuário
+    public UsuarioDTO atualizarUsuario(Long id, UsuarioDTO dto) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Usuário com ID " + id + " não encontrado."));
+
+        usuario.setNome(dto.getNome());
+        usuario.setDataNascimento(dto.getDataNascimento());
+        usuario.setRegiao(dto.getRegiao());
+        usuario.setRedeSocial(dto.getRedeSocial());
+
+        // Atualiza os times favoritos
+        List<TimeFuria> novosTimes = dto.getTimesFavoritosIds().stream()
+                .map(tid -> timeFuriaRepository.findById(tid)
+                        .orElseThrow(() -> new RuntimeException("Time com ID " + tid + " não encontrado.")))
+                .collect(Collectors.toList());
+        usuario.setTimesFavoritos(novosTimes);
+
+        usuario = usuarioRepository.save(usuario);
+        return new UsuarioDTO(usuario);
+    }
+}
