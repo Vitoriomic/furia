@@ -1,0 +1,50 @@
+<div class="register-container">
+    <h2>Cadastro</h2>
+  
+    <form (ngSubmit)="submit()" style="display: flex; flex-direction: column; gap: 12px;">
+      <label>
+        Nome:
+        <input type="text" [(ngModel)]="nome" name="nome" required />
+      </label>
+  
+      <label>
+        Data de Nascimento:
+        <input type="date" [(ngModel)]="dataNascimento" name="dataNascimento" required />
+      </label>
+  
+      <label>
+        Região:
+        <select [(ngModel)]="regiao" name="regiao" required>
+          <option value="" disabled selected>Selecione um estado</option>
+          <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+        </select>
+      </label>
+  
+      <label>
+        Rede Social:
+        <input type="text" [(ngModel)]="redeSocial" name="redeSocial" required />
+      </label>
+  
+      <label>
+        Email:
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </label>
+  
+      <label>
+        Senha:
+        <input type="password" [(ngModel)]="senha" name="senha" required />
+      </label>
+  
+      <label>
+        Times Favoritos (IDs separados por vírgula):
+        <input type="text" [(ngModel)]="timesFavoritos" name="timesFavoritos" required />
+      </label>
+  
+      <button type="submit">Cadastrar</button>
+    </form>
+  
+    <p style="margin-top: 1rem;">
+      Já tem conta? <a routerLink="/login">Clique aqui para entrar</a>
+    </p>
+  </div>
+  

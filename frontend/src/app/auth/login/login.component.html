@@ -1,0 +1,13 @@
+<!-- src/app/auth/login/login.component.html -->
+<h2>Entrar</h2>
+<form (ngSubmit)="submit()">
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="email" name="email" required>
+
+  <label>Senha:</label>
+  <input type="password" [(ngModel)]="senha" name="senha" required>
+
+  <button type="submit">Entrar</button>
+</form>
+
+<p>Ainda não tem conta? <a routerLink="/register">Cadastre-se</a></p>
