@@ -1,5 +1,6 @@
 package com.devmicheletto.furia.services;
 
+import com.devmicheletto.furia.dto.EstadoRankingDTO;
 import com.devmicheletto.furia.dto.UsuarioDTO;
 import com.devmicheletto.furia.dto.UsuarioPublicoDTO;
 import com.devmicheletto.furia.entities.TimeFuria;
@@ -98,5 +99,9 @@ public class UsuarioService {
         return usuarioRepository.findAll().stream()
                 .map(UsuarioPublicoDTO::new)
                 .collect(Collectors.toList());
+    }
+
+    public List<EstadoRankingDTO> buscarRankingEstados() {
+        return usuarioRepository.buscarRankingEstados();
     }
 }

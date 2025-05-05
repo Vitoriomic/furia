@@ -1,5 +1,6 @@
 package com.devmicheletto.furia.controllers;
 
+import com.devmicheletto.furia.dto.EstadoRankingDTO;
 import com.devmicheletto.furia.dto.UsuarioDTO;
 import com.devmicheletto.furia.dto.UsuarioPublicoDTO;
 import com.devmicheletto.furia.services.UsuarioService;
@@ -41,4 +42,10 @@ public class UsuarioController {
         String email = authentication.getName();
         return ResponseEntity.ok(usuarioService.atualizarPorEmail(email, dto));
     }
+
+    @GetMapping("/ranking-estados")
+    public List<EstadoRankingDTO> getRankingEstados() {
+        return usuarioService.buscarRankingEstados();
+    }
+
 }

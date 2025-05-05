@@ -3,7 +3,7 @@ INSERT INTO time_furia (id, nome) VALUES (2, 'Valorant');
 INSERT INTO time_furia (id, nome) VALUES (3, 'Furia FC (Fut7)');
 INSERT INTO time_furia (id, nome) VALUES (4, 'League of Legends');
 
-INSERT INTO usuario (nome, data_nascimento, regiao, rede_social, email, senha) VALUES ('Vitório', '2003-12-02', 'Brasília', '@vitorio.mic','vitorio.mic@exemple.com','$2a$12$Z5Ts53bnpJR8U4a3SqZ89uSsHqQ3.EZvQQikvIy4rSMx.nmEOFBJe');
+INSERT INTO usuario (nome, data_nascimento, regiao, rede_social, email, senha) VALUES ('Vitório', '2003-12-02', 'Distrito Federal', '@vitorio.mic','vitorio.mic@exemple.com','$2a$12$Z5Ts53bnpJR8U4a3SqZ89uSsHqQ3.EZvQQikvIy4rSMx.nmEOFBJe');
 INSERT INTO usuario (nome, data_nascimento, regiao, rede_social, email, senha) VALUES ('Ana', '2002-03-15', 'Minas Gerais', '@aninha076', 'aninha076@exemple.com','$2a$12$HDbFJPwcvx.OoJtygzEVNOBdxm4BkM5s2SSCIMfUqo5l6nChaIV6O');
 
 INSERT INTO usuario_times_favoritos (usuario_id, times_furia_id) VALUES (1, 1);
