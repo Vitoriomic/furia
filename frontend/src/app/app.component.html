@@ -9,7 +9,9 @@
 
 
     <div class="spacer"></div>
-    <img src="https://media-public.canva.com/UNKfQ/MAFa20UNKfQ/1/t.png" class="profile-icon" />
+    <ng-container *ngIf="isAuthenticated()">
+        <button class="header-button logout" (click)="logout()">Sair</button>
+       </ng-container>
+    <img src="https://media-public.canva.com/UNKfQ/MAFa20UNKfQ/1/t.png" class="profile-icon"  (click)="goToProfile()"/> 
   </header>
   <router-outlet />
-  

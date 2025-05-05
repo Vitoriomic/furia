@@ -11,7 +11,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'games', component: GamesComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [authGuard] },
+  { path: 'perfil', component: ProfileComponent, canActivate: [authGuard] },
   { path: '', redirectTo: 'games', pathMatch: 'full' },
   { path: '**', redirectTo: 'games' }
 ];

@@ -1,1 +1,43 @@
-<p>profile works!</p>
+<div class="profile-container">
+    <form (ngSubmit)="salvar()">
+      <label>Nome:
+        <input [(ngModel)]="usuario.nome" name="nome" required />
+      </label>
+  
+      <label>Email:
+        <input [(ngModel)]="usuario.email" name="email" disabled />
+      </label>
+  
+      <label>Data de Nascimento:
+        <input [(ngModel)]="usuario.dataNascimento" type="date" name="dataNascimento" />
+      </label>
+  
+      <label>Região:
+        <select [(ngModel)]="usuario.regiao" name="regiao">
+          <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+        </select>
+      </label>
+  
+      <label>Rede Social:
+        <input [(ngModel)]="usuario.redeSocial" name="redeSocial" />
+      </label>
+  
+      <label>Seus times favoritos da FURIA:</label>
+      <div class="times-grid">
+        <label *ngFor="let time of timesDisponiveis">
+          <input
+            type="checkbox"
+            [value]="time.id"
+            [checked]="usuario.timesFavoritos.includes(time.id)"
+            (change)="onCheckboxChange($event, time.id)"
+          />
+          {{ time.nome }}
+        </label>
+      </div>
+
+
+  
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+  

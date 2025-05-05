@@ -12,4 +12,18 @@ import { NgIf } from '@angular/common';
 })
 export class AppComponent {
   constructor(public router: Router) {}
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
+  goToProfile() {
+    this.router.navigate(['/perfil']);
+  
+  }
+
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('token');
+  }
 }
