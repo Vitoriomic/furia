@@ -67,9 +67,8 @@ Portal interativo para torcedores da FURIA votarem nos jogos, acompanharem estat
 ### ✅ Pré-requisitos
 - Node.js 18+
 - Angular CLI
-- Java 17+
+- Java 21
 - Maven
-- Banco de dados PostgreSQL ou MySQL (configurável no `application.properties`)
 
 ### 📁 Backend
 
