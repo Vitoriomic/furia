@@ -1,4 +1,4 @@
-# 🦊 FURIA Fan Portal
+# FURIA Fan Portal
 
 Portal interativo para torcedores da FURIA votarem nos jogos, acompanharem estatísticas e se conectarem com a torcida por meio de um dashboard visual. O projeto utiliza Angular 19 no front-end e Spring Boot no back-end.
 
