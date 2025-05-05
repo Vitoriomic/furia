@@ -1,50 +1,56 @@
 <div class="register-container">
-    <h2>Cadastro</h2>
-  
-    <form (ngSubmit)="submit()" style="display: flex; flex-direction: column; gap: 12px;">
-      <label>
-        Nome:
-        <input type="text" [(ngModel)]="nome" name="nome" required />
-      </label>
-  
-      <label>
-        Data de Nascimento:
-        <input type="date" [(ngModel)]="dataNascimento" name="dataNascimento" required />
-      </label>
-  
-      <label>
-        Região:
-        <select [(ngModel)]="regiao" name="regiao" required>
-          <option value="" disabled selected>Selecione um estado</option>
-          <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
-        </select>
-      </label>
-  
-      <label>
-        Rede Social:
-        <input type="text" [(ngModel)]="redeSocial" name="redeSocial" required />
-      </label>
-  
-      <label>
-        Email:
-        <input type="email" [(ngModel)]="email" name="email" required />
-      </label>
-  
-      <label>
-        Senha:
-        <input type="password" [(ngModel)]="senha" name="senha" required />
-      </label>
-  
-      <label>
-        Times Favoritos (IDs separados por vírgula):
-        <input type="text" [(ngModel)]="timesFavoritos" name="timesFavoritos" required />
-      </label>
-  
-      <button type="submit">Cadastrar</button>
+  <div class="register-form-side">
+    <img src="assets/logo-furia.svg" class="furia-logo" />
+
+    <a class="form-title">Crie sua conta</a>
+
+
+    <form (ngSubmit)="submit()" class="register-form">
+
+      <div class="inline-group">
+        <label for="nome">Nome:</label>
+        <input id="nome" type="text" [(ngModel)]="nome" name="nome" placeholder="Digite seu nome" required />
+      </div>
+
+      <div class="inline-group">
+        <label for="email">Email:</label>
+        <input id="email" type="email" [(ngModel)]="email" name="email" placeholder="email@example.com" required />
+      </div>
+
+      <div class="inline-double">
+        <div class="inline-group">
+          <label for="dataNascimento">Data de Nascimento:</label>
+          <input id="dataNascimento" type="date" [(ngModel)]="dataNascimento" name="dataNascimento" required />
+        </div>
+
+        <div class="inline-group">
+          <label for="regiao">Região:</label>
+          <select [(ngModel)]="regiao" name="regiao" required>
+            <option value="" disabled selected>Selecione</option>
+            <option *ngFor="let estado of estados" [value]="estado">{{ estado }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="inline-group">
+        <label for="redeSocial">Redes Sociais:</label>
+        <input id="redeSocial" type="text" [(ngModel)]="redeSocial" name="redeSocial" placeholder="@example99" required />
+      </div>
+
+      <div class="inline-group">
+        <label for="senha">Senha:</label>
+        <input id="senha" type="password" [(ngModel)]="senha" name="senha" placeholder="Digite sua senha" required />
+      </div>
+
+      <button type="submit">Criar</button>
     </form>
-  
-    <p style="margin-top: 1rem;">
+
+    <p class="login-link">
       Já tem conta? <a routerLink="/login">Clique aqui para entrar</a>
     </p>
   </div>
-  
+
+  <div class="register-image-side">
+    <img src="assets/pantera-furia.png" />
+  </div>
+</div>

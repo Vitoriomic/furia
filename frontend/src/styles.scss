@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100vh;
+    width: 100%;
+    background-color: #000; // opcional, só pra evitar flashes brancos
+  }
+  
+  @font-face {
+    font-family: 'Garet';
+    src: url('assets/fonts/Garet-Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'Garet';
+    src: url('assets/fonts/Garet-Heavy.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  

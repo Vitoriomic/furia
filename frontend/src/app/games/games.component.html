@@ -1,2 +1,84 @@
-<p>games works!</p>
-<img src="https://usagif.com/wp-content/uploads/2021/4fh5wi/pepefrg-7.gif">
+<div class="games-page">
+    <header class="games-header">
+      <img src="assets/logo-furia.svg" class="logo" />
+      <div class="spacer"></div>
+      <img src="https://media-public.canva.com/UNKfQ/MAFa20UNKfQ/1/t.png" class="profile-icon" />
+    </header>
+  
+    <div class="games-content">
+      <div class="filter-container">
+        <select [(ngModel)]="filtroSelecionado">
+          <option value="">Todos</option>
+          <option *ngFor="let tipo of tiposFiltro" [value]="tipo">{{ tipo }}</option>
+        </select>
+      </div>
+  
+      <div class="jogos-container">
+        <div class="jogo-wrapper" *ngFor="let jogo of jogosFiltrados()" (click)="abrirModal(jogo)">
+            <p class="jogo-data">{{ formatarData(jogo.dataHora) }}</p>
+          
+            <div class="jogo-tipo">{{ jogo.timeFuria }}</div>
+          
+            <div class="jogo-card">
+              <span class="hora">{{ formatarHora(jogo.dataHora) }}</span>
+              <strong class="descricao">FURIA vs {{ jogo.adversario }}</strong>
+              <span class="campeonato">{{ jogo.campeonato }}</span>
+            </div>
+          </div>
+          
+      </div>
+  
+      <div class="panther-side">
+        <img src="assets/pantera-animal.png" alt="Pantera FURIA" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="jogo-modal-backdrop" *ngIf="jogoSelecionado" (click)="fecharModal()">
+    <div class="jogo-modal" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <strong>{{ jogoSelecionado.timeFuria }}</strong>
+        <span (click)="fecharModal()" class="fechar">✕</span>
+      </div>
+  
+      <div class="modal-body">
+        <div class="confronto">
+          <span class="furia">FURIA</span>
+          <span>vs</span>
+          <span class="adversario">{{ resultadoVotacao?.nomeAdversario }}</span>
+        </div>
+  
+        <em>{{ jogoSelecionado.campeonato }}</em>
+  
+        <div class="info">
+          <div>
+            <strong>Data:</strong>
+            <p>{{ formatarData(jogoSelecionado.dataHora) }}</p>
+          </div>
+          <div>
+            <strong>Horário:</strong>
+            <p>{{ formatarHora(jogoSelecionado.dataHora) }}</p>
+          </div>
+        </div>
+  
+        <div class="barras">
+          <div class="barra furia" [style.width.%]="resultadoVotacao?.furia * 100">
+            {{ (resultadoVotacao?.furia).toFixed(0) }}%
+          </div>
+          <div class="barra empate" [style.width.%]="resultadoVotacao?.empate * 100">
+            {{ (resultadoVotacao?.empate).toFixed(0) }}%
+          </div>
+          <div class="barra adversario" [style.width.%]="resultadoVotacao?.adversario * 100">
+            {{ (resultadoVotacao?.adversario).toFixed(0) }}%
+          </div>
+        </div>
+  
+        <div class="botoes" *ngIf="isLoggedIn()">
+            <button class="sim" (click)="votar('FURIA')">✔</button>
+            <button class="nulo" (click)="votar('EMPATE')">-</button>
+            <button class="nao" (click)="votar('ADVERSARIO')">✘</button>
+          </div>          
+      </div>
+    </div>
+  </div>
+  

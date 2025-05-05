@@ -1,13 +1,48 @@
-<!-- src/app/auth/login/login.component.html -->
-<h2>Entrar</h2>
-<form (ngSubmit)="submit()">
-  <label>Email:</label>
-  <input type="email" [(ngModel)]="email" name="email" required>
+<div class="login-container">
+  <!-- Esquerda -->
+  <div class="login-form-side">
+    <img src="assets/logo-furia.svg" alt="FURIA" class="furia-logo" />
 
-  <label>Senha:</label>
-  <input type="password" [(ngModel)]="senha" name="senha" required>
+    <a class="form-title">Acesse sua conta</a>
 
-  <button type="submit">Entrar</button>
-</form>
+    <form (ngSubmit)="submit()" class="login-form">
 
-<p>Ainda não tem conta? <a routerLink="/register">Cadastre-se</a></p>
+      <div class="inline-group">
+        <label for="email">Email:</label>
+        <input
+           id="email"
+           type="email"
+           [(ngModel)]="email"
+           name="email"
+           placeholder="email@example.com"
+           required
+          />
+      </div>
+
+      <div class="inline-group">
+        <label for="senha">Senha:</label>
+        <input
+         id="senha"
+         type="password"
+         [(ngModel)]="senha"
+         name="senha"
+         placeholder="Digite sua senha"
+         required
+       />
+      </div>
+
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="signup-link">
+      Ainda não tem conta?
+      <a routerLink="/register">Cadastre-se</a>
+    </p>
+  </div>
+
+  <!-- Direita -->
+  <div class="login-image-side">
+    <img src="assets/pantera-furia.png" alt="Pantera FURIA" />
+  </div>
+</div>

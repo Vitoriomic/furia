@@ -5,9 +5,11 @@ import com.devmicheletto.furia.entities.Voto;
 import com.devmicheletto.furia.entities.Jogo;
 import com.devmicheletto.furia.enums.OpcaoVoto;
 import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
 public interface VotoRepository extends JpaRepository<Voto, Long> {
     boolean existsByUsuarioAndJogo(Usuario usuario, Jogo jogo);
     long countByJogo(Jogo jogo);
     long countByJogoAndOpcao(Jogo jogo, OpcaoVoto opcao);
+    Optional<Voto> findByUsuarioAndJogo(Usuario usuario, Jogo jogo);
 }

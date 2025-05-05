@@ -8,7 +8,9 @@ import { RouterModule } from '@angular/router';
   selector: 'app-register',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
-  templateUrl: './register.component.html'
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
+
 })
 export class RegisterComponent {
   nome = '';

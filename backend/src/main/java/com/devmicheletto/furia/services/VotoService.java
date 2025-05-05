@@ -30,16 +30,18 @@ public class VotoService {
         Jogo jogo = jogoRepository.findById(idJogo)
                 .orElseThrow(() -> new RuntimeException("Jogo não encontrado"));
 
-        boolean jaVotou = votoRepository.existsByUsuarioAndJogo(usuario, jogo);
-        if (jaVotou) {
-            throw new RuntimeException("Usuário já votou nesse jogo");
-        }
+        Voto votoExistente = votoRepository.findByUsuarioAndJogo(usuario, jogo).orElse(null);
 
-        Voto voto = new Voto();
-        voto.setUsuario(usuario);
-        voto.setJogo(jogo);
-        voto.setOpcao(opcao);
-        votoRepository.save(voto);
+        if (votoExistente != null) {
+            votoExistente.setOpcao(opcao);
+            votoRepository.save(votoExistente);
+        } else {
+            Voto novoVoto = new Voto();
+            novoVoto.setUsuario(usuario);
+            novoVoto.setJogo(jogo);
+            novoVoto.setOpcao(opcao);
+            votoRepository.save(novoVoto);
+        }
     }
 
     public VotoDTO calcularTermometro(Long idJogo) {
