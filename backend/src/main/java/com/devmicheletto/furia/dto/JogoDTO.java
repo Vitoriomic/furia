@@ -6,16 +6,22 @@ import java.time.LocalDateTime;
 
 public class JogoDTO {
 
+    private Long id;
     private String timeFuria;
     private String adversario;
     private LocalDateTime dataHora;
     private String campeonato;
 
     public JogoDTO(Jogo jogo) {
+        this.id = jogo.getId();
         this.timeFuria = jogo.getTimeFuria().getNome();
         this.adversario = jogo.getAdversario();
         this.dataHora = jogo.getDataHora();
         this.campeonato = jogo.getCampeonato();
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getTimeFuria() {
