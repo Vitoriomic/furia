@@ -1,0 +1,31 @@
+/* dashboard-map.component.css */
+
+.mapa-brasil svg {
+    width: 100%;
+    height: auto;
+    fill: #2c2c2c; /* cinza escuro padrão */
+  }
+  
+  .state {
+    cursor: pointer;
+    transition: fill 0.2s ease-in-out;
+    fill: #2c2c2c;
+  }
+  
+  .state:hover {
+    fill: #555;
+  }
+  
+  
+  .tooltip {
+    position: fixed;
+    background: #111;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1000;
+    white-space: nowrap;
+  }
+  

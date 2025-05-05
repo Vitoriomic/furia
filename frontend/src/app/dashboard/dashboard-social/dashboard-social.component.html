@@ -1,0 +1,15 @@
+<div class="social-container">
+    <div class="title">Furiosos:</div>
+    <div class="credit-outer">
+      <div class="credit-track">
+        <div class="credit-line" *ngFor="let social of redes">
+          {{ social.nome }} – {{ social.redeSocial }}
+        </div>
+        <!-- Duplicação para efeito contínuo -->
+        <div class="credit-line" *ngFor="let social of redes">
+          {{ social.nome }} – {{ social.redeSocial }}
+        </div>
+      </div>
+    </div>
+  </div>
+  

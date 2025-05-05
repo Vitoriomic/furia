@@ -1,0 +1,93 @@
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #000;
+  font-family: 'Garet', sans-serif;
+  height: 70%;
+
+  section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+  }
+
+  .ranking-estados {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    overflow-y: auto;
+  }
+
+  .mapa-interativo {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+
+  .ranking-times {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .social {
+    grid-column: 3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  .dashboard-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ranking-estados,
+  .mapa-interativo,
+  .ranking-times,
+  .social {
+    width: 100%;
+    height: auto;
+  }
+}
+
+  
+  
+    .ranking-estados {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+  
+      h2 {
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+  
+        li {
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid #eee;
+          padding: 8px 0;
+  
+          span {
+            font-weight: 500;
+          }
+  
+          strong {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    

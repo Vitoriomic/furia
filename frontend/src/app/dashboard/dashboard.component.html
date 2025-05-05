@@ -1,1 +1,26 @@
-<p>dashboard works!</p>
+<div class="dashboard-page">
+    <main class="dashboard-layout">
+      <section class="ranking-estados">
+        <h2>🏆 Estados com mais fãs</h2>
+        <ul>
+          <li *ngFor="let estado of ranking">
+            <span>{{ estado.estado }}</span>
+            <strong>{{ estado.quantidade }}</strong>
+          </li>
+        </ul>
+      </section>
+  
+      <section class="mapa-interativo">
+        <app-dashboard-map></app-dashboard-map>
+      </section>
+  
+      <section class="ranking-times">
+        <app-dashboard-favorite-teams />
+      </section>
+  
+      <section class="social">
+        <app-dashboard-social />
+      </section>
+    </main>
+  </div>
+  

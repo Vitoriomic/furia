@@ -1,0 +1,9 @@
+<!-- dashboard-map.component.html -->
+<div id="svg-container" [innerHTML]="svgContent" class="mapa-brasil"></div>
+
+<div *ngIf="tooltipVisible"
+     class="tooltip"
+     [style.left.px]="tooltipX"
+     [style.top.px]="tooltipY">
+  {{ tooltipText }}
+</div>

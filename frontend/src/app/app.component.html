@@ -1,1 +1,6 @@
+<header *ngIf="!['/login', '/cadastro'].includes(router.url)" class="games-header">
+    <img src="assets/logo-furia.svg" class="logo" />
+    <div class="spacer"></div>
+    <img src="https://media-public.canva.com/UNKfQ/MAFa20UNKfQ/1/t.png" class="profile-icon" />
+  </header>
 <router-outlet />
