@@ -62,6 +62,8 @@
       background: white;
       border-radius: 12px;
       padding: 20px;
+      max-height: calc(100vh - 100px); 
+      overflow-y: auto; 
   
       h2 {
         font-size: 18px;
@@ -88,6 +90,14 @@
           }
         }
       }
-    }
 
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        background-color: #aaa;
+        border-radius: 6px;
+      }
+    }
     

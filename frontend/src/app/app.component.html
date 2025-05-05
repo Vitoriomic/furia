@@ -1,6 +1,15 @@
 <header *ngIf="!['/login', '/cadastro'].includes(router.url)" class="games-header">
+
+    <nav class="nav-links">
+      <a routerLink="/games" routerLinkActive="active-link">Próximos Jogos</a>
+      <a routerLink="/dashboard" routerLinkActive="active-link">Mapa do Torcedor</a>
+    </nav>
+  
     <img src="assets/logo-furia.svg" class="logo" />
+
+
     <div class="spacer"></div>
     <img src="https://media-public.canva.com/UNKfQ/MAFa20UNKfQ/1/t.png" class="profile-icon" />
   </header>
-<router-outlet />
+  <router-outlet />
+  

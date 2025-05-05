@@ -3,9 +3,9 @@
     color: #000000;
     padding: 20px;
     border-radius: 12px;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    height: 35vh;
   }
   
   .title {
@@ -27,7 +27,7 @@
   .credit-track {
     display: flex;
     flex-direction: column;
-    animation: scroll-up-linear 15s linear infinite;
+    animation: scroll-up-linear 45s linear infinite;
   }
   
   .credit-line {
@@ -38,7 +38,7 @@
   
   @keyframes scroll-up-linear {
     0% {
-      transform: translateY(80%);
+      transform: translateY(0%);
     }
     100% {
       transform: translateY(-50%);
