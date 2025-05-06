@@ -43,9 +43,12 @@ Portal interativo para torcedores da FURIA votarem nos jogos, acompanharem estat
 - **Endpoints principais:**
   - `POST /auth/login` – autenticação e geração de token.
   - `POST /usuario` – cadastro de novo usuário.
+  - `GET /usuario/me` – informações sobre o usuario logado.
+  - `PUT /usuario/me` – atualiza as informações sobre o usuario logado.
   - `GET /jogos` – lista de jogos da FURIA.
+  - `GET /jogos/?furiaId={id}` – detalhes sobre o jogo.
   - `GET /votos/{id}/resultado` – percentual de votos por jogo.
-  - `POST /votos/{id}?opcao={VITORIA|EMPATE|DERROTA}` – registrar voto.
+  - `POST /votos/{id}?opcao={FURIA|EMPATE|ADVERSARIO}` – registrar voto.
 - **Segurança:**
   - Spring Security + JWT
   - Filtros e interceptadores para proteger rotas.
@@ -55,8 +58,9 @@ Portal interativo para torcedores da FURIA votarem nos jogos, acompanharem estat
 
 ### 💻 Frontend (Angular 19)
 - **Pages:**
-  - `/login` – tela de login e cadastro unificada.
-  - `/` – página principal com lista de jogos e modais de votação.
+  - `/login` – tela de login.
+  - `/registro` – tela de cadastro de usuário.
+  - `/games` – página principal com lista de jogos e modais de votação.
   - `/perfil` – perfil do usuário autenticado.
   - `/dashboard` – visualizações e rankings.
 - **Componentes standalone** para melhor modularidade.
@@ -123,7 +127,3 @@ ng serve
 - **Vitório Micheletto** – Desenvolvedor Full Stack
 
 ---
-
-## 📄 Licença
-
-Este projeto é privado e voltado para fins educacionais e demonstrativos. Todos os direitos reservados à equipe de desenvolvimento.
